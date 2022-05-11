@@ -10,7 +10,6 @@
 		F89BA77A282B5D3B00B715D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89BA779282B5D3B00B715D2 /* AppDelegate.swift */; };
 		F89BA77C282B5D3B00B715D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89BA77B282B5D3B00B715D2 /* SceneDelegate.swift */; };
 		F89BA77E282B5D3B00B715D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89BA77D282B5D3B00B715D2 /* ViewController.swift */; };
-		F89BA781282B5D3B00B715D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89BA77F282B5D3B00B715D2 /* Main.storyboard */; };
 		F89BA783282B5D3D00B715D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F89BA782282B5D3D00B715D2 /* Assets.xcassets */; };
 		F89BA786282B5D3D00B715D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89BA784282B5D3D00B715D2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -20,7 +19,6 @@
 		F89BA779282B5D3B00B715D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F89BA77B282B5D3B00B715D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F89BA77D282B5D3B00B715D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F89BA780282B5D3B00B715D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F89BA782282B5D3D00B715D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F89BA785282B5D3D00B715D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F89BA787282B5D3D00B715D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +35,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F889574C282BEFF2003651AA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F89BA77D282B5D3B00B715D2 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		F89BA76D282B5D3A00B715D2 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +62,30 @@
 		F89BA778282B5D3B00B715D2 /* SpectaClone-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				F89BA779282B5D3B00B715D2 /* AppDelegate.swift */,
-				F89BA77B282B5D3B00B715D2 /* SceneDelegate.swift */,
-				F89BA77D282B5D3B00B715D2 /* ViewController.swift */,
-				F89BA77F282B5D3B00B715D2 /* Main.storyboard */,
-				F89BA782282B5D3D00B715D2 /* Assets.xcassets */,
-				F89BA784282B5D3D00B715D2 /* LaunchScreen.storyboard */,
 				F89BA787282B5D3D00B715D2 /* Info.plist */,
+				F8A273D6282BA14E003CC329 /* Source */,
+				F8A273D5282BA14A003CC329 /* Resource */,
 			);
 			path = "SpectaClone-iOS";
+			sourceTree = "<group>";
+		};
+		F8A273D5282BA14A003CC329 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F89BA779282B5D3B00B715D2 /* AppDelegate.swift */,
+				F89BA77B282B5D3B00B715D2 /* SceneDelegate.swift */,
+				F89BA782282B5D3D00B715D2 /* Assets.xcassets */,
+				F89BA784282B5D3D00B715D2 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F8A273D6282BA14E003CC329 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				F889574C282BEFF2003651AA /* ViewControllers */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +148,6 @@
 			files = (
 				F89BA786282B5D3D00B715D2 /* LaunchScreen.storyboard in Resources */,
 				F89BA783282B5D3D00B715D2 /* Assets.xcassets in Resources */,
-				F89BA781282B5D3B00B715D2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +167,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F89BA77F282B5D3B00B715D2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F89BA780282B5D3B00B715D2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F89BA784282B5D3D00B715D2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +304,6 @@
 				INFOPLIST_FILE = "SpectaClone-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +331,6 @@
 				INFOPLIST_FILE = "SpectaClone-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
