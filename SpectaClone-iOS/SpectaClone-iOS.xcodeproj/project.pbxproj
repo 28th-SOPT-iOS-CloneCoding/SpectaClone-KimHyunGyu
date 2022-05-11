@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F889574F282BF117003651AA /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = F889574E282BF117003651AA /* Then */; };
 		F89BA77A282B5D3B00B715D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89BA779282B5D3B00B715D2 /* AppDelegate.swift */; };
 		F89BA77C282B5D3B00B715D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89BA77B282B5D3B00B715D2 /* SceneDelegate.swift */; };
 		F89BA77E282B5D3B00B715D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89BA77D282B5D3B00B715D2 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F889574F282BF117003651AA /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +106,9 @@
 			dependencies = (
 			);
 			name = "SpectaClone-iOS";
+			packageProductDependencies = (
+				F889574E282BF117003651AA /* Then */,
+			);
 			productName = "SpectaClone-iOS";
 			productReference = F89BA776282B5D3B00B715D2 /* SpectaClone-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -132,6 +137,9 @@
 				Base,
 			);
 			mainGroup = F89BA76D282B5D3A00B715D2;
+			packageReferences = (
+				F889574D282BF117003651AA /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = F89BA777282B5D3B00B715D2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -368,6 +376,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F889574D282BF117003651AA /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F889574E282BF117003651AA /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F889574D282BF117003651AA /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F89BA76E282B5D3A00B715D2 /* Project object */;
 }
