@@ -10,6 +10,9 @@ import UIKit
 extension UIView {
     /// 여러개의 UIView 를 한번에 addSubview 해준다.
     func addSubviews(_ views: [UIView]) {
-        views.forEach { self.addSubview($0) }
+        views.forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview($0)
+        }
     }
 }
