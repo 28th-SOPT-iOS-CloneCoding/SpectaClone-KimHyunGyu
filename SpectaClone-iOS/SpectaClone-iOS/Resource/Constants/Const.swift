@@ -9,12 +9,12 @@ import Foundation
 
 struct Const {
     struct URL {
-        static let baseURL = "https://api.themoviedb.org/3/"
-        static let imageUrl = "http://image.tmdb.org/t/p/"
+        static let baseURL = "https://api.themoviedb.org/3"
+        static let imageUrl = "http://image.tmdb.org/t/p"
     }
     
     struct Endpoint {
-        static let popular = "movie/popular"
+        static let popular = "/movie/popular"
     }
     
     struct Key {
