@@ -25,8 +25,7 @@ class ViewController: UIViewController {
         $0.scrollDirection = .vertical
     }
     
-    private lazy var movieCollectionView = UICollectionView(frame: .init(x: 100, y: 100, width: 200, height: 600), collectionViewLayout: collectionViewFlowlayout).then {
-        $0.backgroundColor = .gray
+    private lazy var movieCollectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowlayout).then {
         $0.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "MovieCollectionViewCell")
     }
     
@@ -124,11 +123,10 @@ extension ViewController {
             titleLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20.0)]
         NSLayoutConstraint.activate(titleLabelConstraints)
         
-        guard let superview = self.view.superview else { return }
         let movieCollectionViewConstraints: [NSLayoutConstraint] = [
-            movieCollectionView.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-            movieCollectionView.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
-            movieCollectionView.bottomAnchor.constraint(equalTo: superview.bottomAnchor),
+            movieCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            movieCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            movieCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             movieCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20)
         ]
         NSLayoutConstraint.activate(movieCollectionViewConstraints)
