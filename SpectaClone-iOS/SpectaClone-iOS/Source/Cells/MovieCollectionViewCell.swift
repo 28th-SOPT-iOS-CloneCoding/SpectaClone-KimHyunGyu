@@ -14,14 +14,11 @@ class MovieCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     private let posterImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFill
-        $0.image = UIImage(systemName: "circle")
+        $0.contentMode = .scaleAspectFit
     }
     
     private let titleLabel = UILabel().then {
-        $0.text = "test"
-        $0.textColor = .black
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.font = .systemFont(ofSize: 20)
     }
     
     // MARK: - View Life Cycles
@@ -38,7 +35,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
-    
+        posterImageView.image = UIImage()
+        titleLabel.text = ""
     }
 }
 
@@ -46,7 +44,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
 
 extension MovieCollectionViewCell {
     private func setUI() {
-        self.backgroundColor = .white
     }
     
     func initCellWith(url: String, title: String) {
@@ -88,20 +85,19 @@ extension MovieCollectionViewCell {
 extension MovieCollectionViewCell {
     private func setLayout() {
         self.addSubviews([posterImageView, titleLabel])
-    
-        guard let superview = self.superview else { return }
+
         let posterImageViewConstraints: [NSLayoutConstraint] = [
-            posterImageView.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-            posterImageView.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
-            posterImageView.topAnchor.constraint(equalTo: superview.topAnchor),
+            posterImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            posterImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            posterImageView.topAnchor.constraint(equalTo: self.topAnchor),
             posterImageView.heightAnchor.constraint(equalTo: posterImageView.widthAnchor, multiplier: 1.0)
         ]
         NSLayoutConstraint.activate(posterImageViewConstraints)
         
         let titleLabelConstraints: [NSLayoutConstraint] = [
-            titleLabel.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 10.0)
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 5.0)
         ]
         NSLayoutConstraint.activate(titleLabelConstraints)
     }
