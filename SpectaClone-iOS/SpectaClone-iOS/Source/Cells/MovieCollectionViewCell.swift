@@ -19,7 +19,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     private let titleLabel = UILabel().then {
-        $0.textColor = .white
+        $0.text = "test"
+        $0.textColor = .black
         $0.font = .boldSystemFont(ofSize: 16)
     }
     
@@ -45,15 +46,40 @@ class MovieCollectionViewCell: UICollectionViewCell {
 
 extension MovieCollectionViewCell {
     private func setUI() {
-        self.backgroundColor = .black
+        self.backgroundColor = .white
     }
     
     func initCellWith(url: String, title: String) {
-        if let url = URL(string: Const.URL.imageUrl + url) {
-            // TODO: - 이미지 다운로드.
+        Task {
+            do {
+                let posterImage = try await fetchImage(with: url)
+                posterImageView.image = posterImage
+                titleLabel.text = title
+            } catch ImageDownloadError.unsupportImage {
+                print("image download error - unsupportImage")
+            } catch ImageDownloadError.invalidServerResponse {
+                print("image download error - invalidServerResponse")
+            } catch ImageDownloadError.invalidURLString {
+                print("image download error - invalidURLString")
+            }
+        }
+    }
+    
+    private func fetchImage(with urlString: String) async throws -> UIImage {
+        guard let url = URL(string: Const.URL.imageUrl + urlString) else {
+            throw ImageDownloadError.invalidURLString
+        }
+
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw ImageDownloadError.invalidServerResponse
         }
         
-        titleLabel.text = title
+        guard let image = UIImage(data: data) else {
+            throw ImageDownloadError.unsupportImage
+        }
+        
+        return image
     }
 }
 
@@ -75,7 +101,8 @@ extension MovieCollectionViewCell {
         let titleLabelConstraints: [NSLayoutConstraint] = [
             titleLabel.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 10.0)]
+            titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 10.0)
+        ]
         NSLayoutConstraint.activate(titleLabelConstraints)
     }
 }
