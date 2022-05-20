@@ -42,10 +42,7 @@ class ViewController: UIViewController {
         
         Task {
             do {
-                guard let url = URL(string: Const.URL.baseURL + Const.Endpoint.popular + Const.Key.key) else {
-                    throw MovieDownloadError.invalidURLString
-                }
-                movies = try await getMovie(url: url)
+                movies = try await getMovie()
                 movieCollectionView.reloadData()
             } catch MovieDownloadError.invalidURLString {
                 print("movie error - invalidURLString")
@@ -70,7 +67,11 @@ extension ViewController {
     
     // MARK: - Network
     
-    private func getMovie(url: URL) async throws -> [Result] {
+    private func getMovie() async throws -> [Result] {
+        guard let url = URL(string: Const.URL.baseURL + Const.Endpoint.popular + Const.Key.apiKey) else {
+            throw MovieDownloadError.invalidURLString
+        }
+        
         let (data, response) = try await URLSession.shared.data(from: url)
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw MovieDownloadError.invalidServerResponse
