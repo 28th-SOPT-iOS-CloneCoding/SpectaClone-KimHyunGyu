@@ -8,9 +8,9 @@
 import Foundation
 
 struct Const {
-    struct URL {
-        static let baseURL = "https://api.themoviedb.org/3"
-        static let imageUrl = "https://image.tmdb.org/t/p/original"
+    struct Path {
+        static let baseURLPath = "https://api.themoviedb.org/3"
+        static let imageURLPath = "https://image.tmdb.org/t/p/original"
     }
     
     struct Endpoint {
@@ -18,6 +18,6 @@ struct Const {
     }
     
     struct Key {
-        static let key = "?api_key=4803d10b09913b29b376e511c75a63fb"
+        static let apiKey = "4803d10b09913b29b376e511c75a63fb"
     }
 }
