@@ -63,7 +63,7 @@ extension MovieCollectionViewCell {
     }
     
     private func fetchImage(with urlString: String) async throws -> UIImage {
-        guard let url = URL(string: Const.URL.imageUrl + urlString) else {
+        guard let url = URL(string: Const.Path.imageURLPath + urlString) else {
             throw ImageDownloadError.invalidURLString
         }
 
