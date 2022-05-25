@@ -41,13 +41,22 @@ class ViewController: UIViewController {
         setLayout()
         
         Task {
+            // TODO: - 에러 핸들링 이거.. 맞냐..
             do {
                 movies = try await getMovie()
                 movieCollectionView.reloadData()
             } catch MovieDownloadError.invalidURLString {
                 print("movie error - invalidURLString")
-            } catch MovieDownloadError.invalidServerResponse {
-                print("movie error - invalidServerResponse")
+            } catch MovieDownloadError.invalidHTTPURLResponse {
+                print("movie error - invalidHTTPURLResponse")
+            } catch NetworkError.decodedErr {
+                print("network error - decodedErr")
+            } catch NetworkError.requestErr {
+                print("network error - requestErr")
+            } catch NetworkError.serverErr {
+                print("network error - serverErr")
+            } catch NetworkError.networkFail {
+                print("network error - networkFail")
             }
         }
     }
@@ -68,16 +77,7 @@ extension ViewController {
     // MARK: - Network
     
     private func getMovie() async throws -> [Result] {
-        guard let url = URL(string: Const.URL.baseURL + Const.Endpoint.popular + Const.Key.apiKey) else {
-            throw MovieDownloadError.invalidURLString
-        }
-        
-        let (data, response) = try await URLSession.shared.data(from: url)
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            throw MovieDownloadError.invalidServerResponse
-        }
-        let popularMovie = try JSONDecoder().decode(PopularMovie.self, from: data)
-        
+        let popularMovie = try await NetworkAPI.shared.fetchPopularMovies()
         return popularMovie.results
     }
 }
