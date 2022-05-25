@@ -17,6 +17,7 @@ public protocol TargetType {
     /// The HTTP method used in the request.
     var method: HTTPMethod { get }
 
+    /// 실제로는 사용되지 않으나 extension 을 활용하여 protocol method 의 기본값을 설정할 수 있음을 확인.
     /// Provides stub data for use in testing. Default is `Data()`.
     var sampleData: Data { get }
 
