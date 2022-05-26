@@ -7,7 +7,9 @@
 
 import Foundation
 
+/// 데이터를 다운받기 위해 준비하는 과정에서 발생하는 에러.
 enum DataDownloadError: Error {
+    
     /// 유효하지 않은 URLComponents 생성 오류.
     case invalidURLComponents
     

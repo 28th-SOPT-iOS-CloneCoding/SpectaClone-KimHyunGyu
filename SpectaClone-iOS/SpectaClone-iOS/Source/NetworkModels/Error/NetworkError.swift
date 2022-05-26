@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 서버통신 시 발생하는 에러.
 enum NetworkError: Error {
     
     /// 디코딩 에러.
