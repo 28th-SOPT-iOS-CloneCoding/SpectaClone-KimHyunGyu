@@ -45,18 +45,18 @@ class ViewController: UIViewController {
             do {
                 movies = try await getMovie()
                 movieCollectionView.reloadData()
-            } catch MovieDownloadError.invalidURLString {
+            } catch DataDownloadError.invalidURLString {
                 print("movie error - invalidURLString")
-            } catch MovieDownloadError.invalidHTTPURLResponse {
-                print("movie error - invalidHTTPURLResponse")
-            } catch NetworkError.decodedErr {
-                print("network error - decodedErr")
-            } catch NetworkError.requestErr {
-                print("network error - requestErr")
-            } catch NetworkError.serverErr {
-                print("network error - serverErr")
-            } catch NetworkError.networkFail {
-                print("network error - networkFail")
+            } catch DataDownloadError.invalidServerResponse {
+                print("movie error - invalidServerResponse")
+            } catch NetworkError.decodError(let type) {
+                print("network error - decodeError : \(type)")
+            } catch NetworkError.requestError(let statusCode) {
+                print("network error - requestError : \(statusCode)")
+            } catch NetworkError.serverError(let statusCode) {
+                print("network error - serverError : \(statusCode)")
+            } catch NetworkError.networkFailError(let statusCode) {
+                print("network error - networkFailError : \(statusCode)")
             }
         }
     }
