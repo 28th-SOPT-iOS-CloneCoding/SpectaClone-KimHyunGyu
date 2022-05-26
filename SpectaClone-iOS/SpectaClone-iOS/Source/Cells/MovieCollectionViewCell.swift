@@ -49,7 +49,7 @@ extension MovieCollectionViewCell {
     func initCellWith(url: String, title: String) {
         Task {
             do {
-                let posterImage = try await fetchImage(with: url)
+                let posterImage = try await ImageFetchProvider.shared.fetchImage(with: url)
                 posterImageView.image = posterImage
                 titleLabel.text = title
             } catch ImageDownloadError.unsupportImage {
@@ -60,23 +60,6 @@ extension MovieCollectionViewCell {
                 print("image download error - invalidURLString")
             }
         }
-    }
-    
-    private func fetchImage(with urlString: String) async throws -> UIImage {
-        guard let url = URL(string: Const.Path.imageURLPath + urlString) else {
-            throw ImageDownloadError.invalidURLString
-        }
-
-        let (data, response) = try await URLSession.shared.data(from: url)
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            throw ImageDownloadError.invalidServerResponse
-        }
-        
-        guard let image = UIImage(data: data) else {
-            throw ImageDownloadError.unsupportImage
-        }
-        
-        return image
     }
 }
 
