@@ -22,7 +22,7 @@ public struct NetworkAPI {
         
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse else {
-            throw MovieDownloadError.invalidServerResponse
+            throw DataDownloadError.invalidServerResponse
         }
         let networkResult = try self.judgeStatus(by: httpResponse.statusCode, data, type: PopularMovie.self)
 
@@ -33,13 +33,13 @@ public struct NetworkAPI {
     private func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, type: T.Type) throws -> T {
         switch statusCode {
         case 200:
-            return try decodedData(type, from: data)
+            return try decodeData(from: data, to: type)
         case 400..<500:
-            throw NetworkError.requestErr
+            throw NetworkError.requestError(statusCode)
         case 500:
-            throw NetworkError.serverErr
+            throw NetworkError.serverError(statusCode)
         default:
-            throw NetworkError.networkFail
+            throw NetworkError.networkFailError(statusCode)
         }
     }
     
@@ -48,10 +48,10 @@ public struct NetworkAPI {
         // response 에 공통 요소가(ex. status, success, data 등) 없음.
 //        guard let decodedData = try? JSONDecoder().decode(GenericResponse<T>.self, from: data),
 //              let data = decodedData.data else {
-//            throw NetworkError.decodedErr
+//            throw NetworkError.decodError(toType: T.self)
 //        }
         guard let decodedData = try? JSONDecoder().decode(T.self, from: data) else {
-            throw NetworkError.decodedErr
+            throw NetworkError.decodError(toType: T.self)
         }
     
         return decodedData
