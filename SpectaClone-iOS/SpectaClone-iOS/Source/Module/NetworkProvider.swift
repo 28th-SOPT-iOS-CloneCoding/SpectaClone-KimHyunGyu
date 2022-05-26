@@ -13,7 +13,7 @@ struct NetworkProvider<Target: TargetType> {
         // url path
         let path = target.baseURLPath + target.path
         guard var urlComponents = URLComponents(string: path) else {
-            throw MovieDownloadError.invalidURLString
+            throw DataDownloadError.invalidURLComponents
         }
         
         // task
@@ -34,7 +34,7 @@ struct NetworkProvider<Target: TargetType> {
             }
         }
         guard let url = url else {
-            throw MovieDownloadError.invalidURLString
+            throw DataDownloadError.invalidURLString
         }
         
         // method
