@@ -8,10 +8,18 @@
 import Foundation
 
 enum NetworkService {
+    
+    /// 인기있는 영화 목록을 가져오는 서버통신.
+    /// - Parameter page : pagination 을 지원하는 파라미터. Default is nil.
     case popular(page: Int? = nil)
+    
+    /// 이미지를 가져오는 서버통신.
+    /// - Parameter option : request parameter 로 이미지 사이즈 옵션을 전달하는 파라미터. Default is original.
+    /// - Parameter url : option 뒤에 붙을 URL.
     case fetchImage(option: ImageSizeOptions = .original, url: String)
 }
 
+/// 해당 open API  에서 지원하는 이미지 사이즈 옵션.
 enum ImageSizeOptions: String {
     case original = "original"
     case w500 = "w500"
