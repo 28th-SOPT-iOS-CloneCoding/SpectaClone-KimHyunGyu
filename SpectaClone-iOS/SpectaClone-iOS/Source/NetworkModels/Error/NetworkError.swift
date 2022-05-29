@@ -12,7 +12,7 @@ enum NetworkError: Error {
     
     /// 디코딩 에러.
     /// - Parameter toType : Deciadable 을 채택하는 디코딩 가능한 자료형. existential metatype 이다.
-    case decodError(toType: Decodable.Type)
+    case decodeError(toType: Decodable.Type)
     
     /// 서버 요청 에러.
     case requestError(_ statusCode: Int)
