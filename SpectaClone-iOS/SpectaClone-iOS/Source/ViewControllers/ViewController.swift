@@ -49,7 +49,7 @@ class ViewController: UIViewController {
                 print("movie error - invalidURLString")
             } catch DataDownloadError.invalidServerResponse {
                 print("movie error - invalidServerResponse")
-            } catch NetworkError.decodError(let type) {
+            } catch NetworkError.decodeError(let type) {
                 print("network error - decodeError : \(type)")
             } catch NetworkError.requestError(let statusCode) {
                 print("network error - requestError : \(statusCode)")

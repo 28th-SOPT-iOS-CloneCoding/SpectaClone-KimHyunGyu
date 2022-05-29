@@ -30,5 +30,4 @@ struct ImageFetchProvider {
         
         return image
     }
-    
 }

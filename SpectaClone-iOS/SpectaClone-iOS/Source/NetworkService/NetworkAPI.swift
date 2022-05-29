@@ -8,12 +8,13 @@
 import Foundation
 
 public struct NetworkAPI {
-    
     static let shared = NetworkAPI()
     
     private let provider = NetworkProvider<NetworkService>()
     private init() { }
     
+    /// 인기있는 영화 목록을 가져오는 서버통신 메서드.
+    /// - Parameter page : pagination 할 수 있는 매개변수. Default is nil.
     func fetchPopularMovies(page: Int? = nil) async throws -> PopularMovie {
         let request = try provider.request(.popular(page: page))
         
@@ -58,7 +59,7 @@ public struct NetworkAPI {
 //        }
         
         guard let decodedData = try? JSONDecoder().decode(T.self, from: data) else {
-            throw NetworkError.decodError(toType: T.self)
+            throw NetworkError.decodeError(toType: T.self)
         }
     
         return decodedData
