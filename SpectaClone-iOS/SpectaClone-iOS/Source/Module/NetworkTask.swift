@@ -10,7 +10,7 @@ import Foundation
 public enum NetworkTask {
     
     /// A request with no additional data.
-    case reqiestPlan
+    case requestPlain
     
     case requestParameters(parameters: [String : Any], encoding: ParameterEncoding)
 }

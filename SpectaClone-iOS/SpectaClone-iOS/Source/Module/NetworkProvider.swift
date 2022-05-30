@@ -20,7 +20,7 @@ struct NetworkProvider<Target: TargetType> {
         var url: URL?
         let task = target.task
         switch task {
-        case .reqiestPlan:
+        case .requestPlain:
             url = urlComponents.url
         case .requestParameters(let parameters, let encoding):
             switch encoding {

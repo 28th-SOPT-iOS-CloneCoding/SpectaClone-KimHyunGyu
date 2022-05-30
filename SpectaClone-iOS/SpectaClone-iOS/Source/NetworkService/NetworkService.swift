@@ -69,7 +69,7 @@ extension NetworkService: TargetType {
             }
             return .requestParameters(parameters: parameters, encoding: .queryString)
         case .fetchImage(_, _):
-            return .reqiestPlan
+            return .requestPlain
         }
     }
     
