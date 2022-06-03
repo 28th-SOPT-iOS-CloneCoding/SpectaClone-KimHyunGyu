@@ -29,6 +29,7 @@
 		F89BA77E282B5D3B00B715D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89BA77D282B5D3B00B715D2 /* ViewController.swift */; };
 		F89BA783282B5D3D00B715D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F89BA782282B5D3D00B715D2 /* Assets.xcassets */; };
 		F89BA786282B5D3D00B715D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89BA784282B5D3D00B715D2 /* LaunchScreen.storyboard */; };
+		F8B264AD2849CDFD0075FEE2 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B264AC2849CDFD0075FEE2 /* ImageDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		F89BA782282B5D3D00B715D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F89BA785282B5D3D00B715D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F89BA787282B5D3D00B715D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8B264AC2849CDFD0075FEE2 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				F81CC2F4283798D900C2BA0E /* TargetType.swift */,
 				F81CC2ED283796B500C2BA0E /* NetworkProvider.swift */,
 				F890A5A2283F52BE00ACC22B /* ImageFetchProvider.swift */,
+				F8B264AC2849CDFD0075FEE2 /* ImageDownloader.swift */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				F890A5A3283F52BE00ACC22B /* ImageFetchProvider.swift in Sources */,
 				F89BA77E282B5D3B00B715D2 /* ViewController.swift in Sources */,
 				F8895758282C3925003651AA /* PopularMovie.swift in Sources */,
+				F8B264AD2849CDFD0075FEE2 /* ImageDownloader.swift in Sources */,
 				F8895755282BF91A003651AA /* MovieCollectionViewCell.swift in Sources */,
 				F89BA77A282B5D3B00B715D2 /* AppDelegate.swift in Sources */,
 				F83D8671282CCDA400EC5618 /* Const.swift in Sources */,
