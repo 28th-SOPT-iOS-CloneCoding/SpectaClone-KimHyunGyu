@@ -26,9 +26,7 @@ actor ImageDownloader {
         
         cache[url] = cache[url, default: image]
         
-        // FIXME: - 강제 추출...
         return cache[url]!
-        
         
 //        guard let cached = cache[url] else {
 //            throw ImageDownloadError.unsupportImage
