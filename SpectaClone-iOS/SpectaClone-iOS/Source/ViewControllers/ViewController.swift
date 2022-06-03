@@ -98,7 +98,7 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.initCellWith(url: movies[indexPath.item].posterPath, title: movies[indexPath.item].originalTitle)
+        cell.initCellWith(urlPath: movies[indexPath.item].posterPath, title: movies[indexPath.item].originalTitle)
         return cell
     }
 }
