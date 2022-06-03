@@ -43,7 +43,9 @@ class ViewController: UIViewController {
         Task {
             do {
                 movies = try await getMovie()
-                movieCollectionView.reloadData()
+                await MainActor.run {
+                    movieCollectionView.reloadData()
+                }
             } catch DataDownloadError.invalidURLString {
                 print("movie error - invalidURLString")
             } catch DataDownloadError.invalidServerResponse {
