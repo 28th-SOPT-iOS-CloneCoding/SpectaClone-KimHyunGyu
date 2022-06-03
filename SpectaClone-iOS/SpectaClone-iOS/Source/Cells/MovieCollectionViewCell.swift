@@ -46,10 +46,10 @@ extension MovieCollectionViewCell {
     private func setUI() {
     }
     
-    func initCellWith(url: String, title: String) {
+    func initCellWith(urlPath: String, title: String) {
         Task {
             do {
-                let posterImage = try await ImageFetchProvider.shared.fetchImage(with: url)
+                let posterImage = try await ImageDownloader.shared.image(from: urlPath)
                 posterImageView.image = posterImage
                 titleLabel.text = title
             } catch ImageDownloadError.unsupportImage {
