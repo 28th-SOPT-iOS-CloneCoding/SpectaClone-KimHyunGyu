@@ -34,7 +34,7 @@ struct NetworkProvider<Target: TargetType> {
             }
         }
         guard let url = url else {
-            throw DataDownloadError.invalidURLString
+            throw DataDownloadError.emptyURL
         }
         
         // method
