@@ -50,8 +50,10 @@ extension MovieCollectionViewCell {
         Task {
             do {
                 let posterImage = try await ImageDownloader.shared.image(from: urlPath)
-                posterImageView.image = posterImage
-                titleLabel.text = title
+                await MainActor.run {
+                    posterImageView.image = posterImage
+                    titleLabel.text = title
+                }
             } catch ImageDownloadError.unsupportImage {
                 print("image download error - unsupportImage")
             } catch ImageDownloadError.invalidServerResponse {
