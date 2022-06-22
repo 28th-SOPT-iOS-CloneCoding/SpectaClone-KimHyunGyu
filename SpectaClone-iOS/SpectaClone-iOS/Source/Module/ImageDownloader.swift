@@ -27,12 +27,6 @@ actor ImageDownloader {
         cache[url] = cache[url, default: image]
         
         return cache[url]!
-        
-//        guard let cached = cache[url] else {
-//            throw ImageDownloadError.unsupportImage
-//        }
-//
-//        return cache[url]
     }
 
     private func downloadImage(from url: URL) async throws -> UIImage {
