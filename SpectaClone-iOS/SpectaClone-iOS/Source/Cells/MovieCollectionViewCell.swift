@@ -56,8 +56,8 @@ extension MovieCollectionViewCell {
                 print("image download error - unsupportImage")
             } catch ImageDownloadError.invalidServerResponse {
                 print("image download error - invalidServerResponse")
-            } catch ImageDownloadError.invalidURLString {
-                print("image download error - invalidURLString")
+            } catch ImageDownloadError.invalidURLString(let urlPath) {
+                print("image download error - invalidURLString: \(urlPath)")
             }
         }
     }

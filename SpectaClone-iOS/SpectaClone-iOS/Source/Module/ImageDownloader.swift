@@ -15,7 +15,7 @@ actor ImageDownloader {
     
     func image(from urlPath: String) async throws -> UIImage? {
         guard let url = URL(string: Const.Path.imageURLPath + urlPath) else {
-            throw ImageDownloadError.invalidURLString
+            throw ImageDownloadError.invalidURLString(Const.Path.imageURLPath + urlPath)
         }
         
         if let cached = cache[url] {
