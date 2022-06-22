@@ -15,7 +15,7 @@ actor ImageDownloader {
     
     func image(from urlPath: String) async throws -> UIImage? {
         guard let url = URL(string: Const.Path.imageURLPath + urlPath) else {
-            throw ImageDownloadError.invalidURLString
+            throw ImageDownloadError.invalidURLString(Const.Path.imageURLPath + urlPath)
         }
         
         if let cached = cache[url] {
@@ -26,7 +26,9 @@ actor ImageDownloader {
         
         cache[url] = cache[url, default: image]
         
-        return cache[url]!
+        guard let thumbnailImage = await cache[url]?.thumbnail else { throw ImageDownloadError.unsupportImage }
+        
+        return thumbnailImage
     }
 
     private func downloadImage(from url: URL) async throws -> UIImage {

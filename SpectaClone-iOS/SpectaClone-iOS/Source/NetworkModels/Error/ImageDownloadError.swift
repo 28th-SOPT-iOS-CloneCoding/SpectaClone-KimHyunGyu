@@ -11,7 +11,7 @@ import Foundation
 enum ImageDownloadError: Error {
     
     /// 유효하지 않은 URL 형식 오류.
-    case invalidURLString
+    case invalidURLString(_ urlPath: String)
     
     /// 유효하지 않은 Server Response 오류.
     case invalidServerResponse
