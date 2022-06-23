@@ -24,11 +24,11 @@ actor ImageDownloader {
         
         let image = try await downloadImage(from: url)
         
-        cache[url] = cache[url, default: image]
+        guard let thumbnailImage = await image.thumbnail else { throw ImageDownloadError.unsupportImage }
+
+        cache[url] = cache[url, default: thumbnailImage]
         
-        guard let thumbnailImage = await cache[url]?.thumbnail else { throw ImageDownloadError.unsupportImage }
-        
-        return thumbnailImage
+        return cache[url]!
     }
 
     private func downloadImage(from url: URL) async throws -> UIImage {
