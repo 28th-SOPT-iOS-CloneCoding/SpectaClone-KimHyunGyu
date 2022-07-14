@@ -9,10 +9,10 @@
 
 ## 👉
 
-[iOS) async/await 와 URLSession 사용하기(1) - async/await](https://github.com/28th-SOPT-iOS-CloneCoding/SpectaClone-KimHyunGyu/issues/3)
+[iOS) async/await 와 URLSession 사용하기(1) - async/await](https://github.com/28th-SOPT-iOS-CloneCoding/SpectaClone-KimHyunGyu/issues/5)
 
-[iOS) async/await 와 URLSession 사용하기(2) - abstraction layer 구축해보기](https://github.com/28th-SOPT-iOS-CloneCoding/SpectaClone-KimHyunGyu/issues/5)
+[iOS) async/await 와 URLSession 사용하기(2) - abstraction layer 구축해보기](https://github.com/28th-SOPT-iOS-CloneCoding/SpectaClone-KimHyunGyu/issues/6)
 
 [iOS) Actor 를 활용한 이미지 캐싱처리 - WWDC21 Protect mutable state with Swift actors](https://github.com/28th-SOPT-iOS-CloneCoding/SpectaClone-KimHyunGyu/issues/9)
 
-[iOS) asnyc/await 사용하여 이미지의 thumbnail 비동기적으로 만들기](https://gyuios.tistory.com/191)
+[iOS) asnyc/await 사용하여 이미지의 thumbnail 비동기적으로 만들기](https://github.com/28th-SOPT-iOS-CloneCoding/SpectaClone-KimHyunGyu/issues/12)
