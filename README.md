@@ -9,7 +9,7 @@
 
 ## 👉
 
-[iOS) async/await 와 URLSession 사용하기(1) - async/await](https://github.com/28th-SOPT-iOS-CloneCoding/SpectaClone-KimHyunGyu/issues/4)
+[iOS) async/await 와 URLSession 사용하기(1) - async/await](https://github.com/28th-SOPT-iOS-CloneCoding/SpectaClone-KimHyunGyu/issues/3)
 
 [iOS) async/await 와 URLSession 사용하기(2) - abstraction layer 구축해보기](https://github.com/28th-SOPT-iOS-CloneCoding/SpectaClone-KimHyunGyu/issues/5)
 
